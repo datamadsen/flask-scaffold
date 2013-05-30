@@ -1,7 +1,19 @@
-<html>
-<body>
-    <div>
-        FRAG.
-    </div>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+{% from "macros.html" import render_field %}
+
+<ul>
+    {% for foo in foos %}
+        <li>{{ foo.title  }}</li>
+    {% endfor %}
+</ul>
+
+    <form action="." method="POST" accept-charset="utf-8">
+        {{ form.csfr_token }}
+        {{ render_field(form.title) }}
+
+        <input type="submit" value="Foo!">
+
+    </form>
+
+{% endblock content %}

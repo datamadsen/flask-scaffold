@@ -7,7 +7,7 @@ class Config(object):
     DEBUG = False
     TESTING = False
     ASSETS_DEBUG = False
-    TEMPLATE_FOLDER = 'templates'
+    TEMPLATE_FOLDER = os.path.join(os.path.abspath(__package__), 'templates')
 
 
 class DevelopmentConfig(Config):

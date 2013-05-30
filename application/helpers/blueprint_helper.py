@@ -2,7 +2,7 @@ from flask import Flask, Blueprint
 import os
 
 
-def set_template_folder(blueprint, app, templates_subfolder=None):
+def set_template_folder(blueprint, app, subfolder=None):
     """ Set Blueprint template_folder to app's
         TEMPLATE_FOLDER/blueprint.name  """
 
@@ -12,8 +12,8 @@ def set_template_folder(blueprint, app, templates_subfolder=None):
     if not isinstance(app, Flask):
         raise TypeError("app must be a Flask app.")
 
-    if templates_subfolder is None:
-        templates_subfolder = blueprint.name
+    if subfolder is None:
+        subfolder = blueprint.name
 
     blueprint.template_folder = os.path.join(
-        app.root_path, app.config['TEMPLATE_FOLDER'], templates_subfolder)
+        app.config['TEMPLATE_FOLDER'], subfolder)

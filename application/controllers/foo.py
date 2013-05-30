@@ -7,3 +7,7 @@ blueprint = Blueprint('foo', __name__)
 def get():
     return render_template('index.html')
     #return "Hello, Foo!"
+
+# @blueprint.route('/db_test', methods=['GET'])
+# def db_test():
+    #

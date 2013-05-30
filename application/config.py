@@ -14,3 +14,5 @@ class DevelopmentConfig(Config):
 
     """ Configuration for development. """
     DEBUG = True
+    DB_URL = 'sqlite:///' + os.path.join(
+        os.path.abspath(__package__), 'dev.db')

@@ -20,3 +20,7 @@ def get_session_and_Base(app):
     Base.query = db_session.query_property()
 
     return db_session, Base
+
+
+def migrate_database(app):
+    pass

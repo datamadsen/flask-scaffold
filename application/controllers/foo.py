@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from application.forms.foo import FooForm
 from application.models import Foo, session
+from datetime import datetime
 
 blueprint = Blueprint('foo', __name__)
 
@@ -18,6 +19,7 @@ def post():
     if form.validate():
         foo = Foo()
         foo.title = form.title.data
+        foo.created = datetime.now()
         session.add(foo)
         session.commit()
     return redirect(url_for('foo.get'))
